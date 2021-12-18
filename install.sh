@@ -66,8 +66,13 @@ install() {
 }
 
 checkSudo
-echo -e "\n$BLUE\033[1mWelcome to Enzo VICTORIN's environment installer!\033[0m\n"
-
+echo -e "\n$BLUE\033[1mWelcome to Enzo VICTORIN's environment installer!\033[0m"
+echo -e "
+Copyright (C) 2021 Enzo VICTORIN
+This program comes with$RED ABSOLUTELY NO WARRANTY$NC; for details see ./LICENSE.
+This is free software, and you are welcome to redistribute it
+under certain conditions; see ./LICENSE.
+"
 echo -e "This script will install:"
 echo -e "$ARROW \033[1mApple's Command Line Tools\033[0m"
 echo -e "$ARROW \033[1mHomebrew\033[0m"
