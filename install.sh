@@ -54,18 +54,71 @@ installZSH_Plugins() {
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 }
 
+installCocoapods() {
+    echo -e "$ARROW \033[1mInstalling cocoapods...\033[0m"
+    echo -e "Your password is required for installing Cocoapods."
+    sudo gem install cocoapods
+}
+
+installFastlane() {
+    echo -e "$ARROW \033[1mInstalling Fastlane...\033[0m"
+    brew install fastlane
+}
+
+installXcodes() {
+    echo -e "$ARROW \033[1mInstalling Xcodes...\033[0m"
+    brew install --cask xcodes
+}
+
+installVSCodium() {
+    echo -e "$ARROW \033[1mInstalling VSCodium...\033[0m"
+    brew install --cask vscodium
+}
+
+installLibreWolf() {
+    echo -e "$ARROW \033[1mInstalling LibreWolf...\033[0m"
+    brew install --cask librewolf
+}
+
+installLibreWolfExtensions() {
+    echo -e "$ARROW \033[1mInstalling LibreWolf extensions...\033[0m"
+    echo -e "see ./LibreWolfExtensions/README.md for details."
+    cp LibreWolfExtensions/** $HOME/Library/Application\ Support/LibreWolf/Profiles/obgtuti3.default-release/extensions
+}
+
 install() {
+    # Install Apple's Command line tools.
     installCommandLineTools
+    # Install Homebrew, the missing package manager for macOS
     installBrew
+    # Install Oh My ZSH
     installOhMyZSH
+    # Install the ZSH theme `Powerlevel10K`
     installZSH_Theme
+    # Install ZSH plugins
     installZSH_Plugins
+    # Install Cocoapods
+    installCocoapods
+    # Install XcodeS (not Xcode!)
+    installXcodes
+    # Install VSCodium
+    installVSCodium
+    # Install the LibreWolf browser
+    installLibreWolf
+    # Install a few browser extensions
+    # See ./LibreWolfExtensions/README.md for details.
+    installLibreWolfExtensions
+
+    # Done!
     echo -e ""
     echo -e "$GREEN\033[1mDone!\033[0m\n"
+    echo -e "Restart your terminal to see the new look!"
+    echo -e "You need to authorise the extensions within the LibreWolf browser to use them.\n"
     exit 0
 }
 
 checkSudo
+
 echo -e "\n$BLUE\033[1mWelcome to Enzo VICTORIN's environment installer!\033[0m"
 echo -e "
 Copyright (C) 2021 Enzo VICTORIN
@@ -80,6 +133,10 @@ echo -e "$ARROW \033[1mOh My ZSH\033[0m"
 echo -e "$ARROW \033[1mOh My ZSH theme \`Powerlevel10K\`\033[0m"
 echo -e "$ARROW \033[1mOh My ZSH plugin \`zsh-autocomplete\`\033[0m"
 echo -e "$ARROW \033[1mOh My ZSH plugin \`zsh-syntax-highlighting\`\033[0m"
+echo -e "$ARROW \033[1mCocoapods\033[0m"
+echo -e "$ARROW \033[1mXcodes\033[0m"
+echo -e "$ARROW \033[1mVSCodium\033[0m"
+echo -e "$ARROW \033[1mLibreWolf\033[0m"
 
 echo -e ""
 
@@ -88,6 +145,15 @@ echo -e "$ARROW \033[1m~/.zshrc\033[0m"
 echo -e "$ARROW \033[1m~/.p10k.zsh\033[0m"
 
 echo -e ""
+
+echo -e "This script will install these browser extensions in LibreWolf:"
+echo -e "$ARROW \033[1mMedium Unlimited\033[0m"
+echo -e "$ARROW \033[1mFirefox Multi-Account Container\033[0m"
+echo -e "$ARROW \033[1mDashlane\033[0m"
+echo -e "$ARROW \033[1mSponsorBlock\033[0m"
+echo -e "$ARROW \033[1mAuto Cookie Optout\033[0m"
+echo -e "$ARROW \033[1mForget Me Not\033[0m"
+
 
 read -p $'Do you wish to continue? [y/n] \x0a' yn
 case $yn in
