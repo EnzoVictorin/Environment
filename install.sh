@@ -24,6 +24,7 @@ checkSudo() {
         echo -e "$RED_ARROW \033[1mDon't run this script as root!\033[0m"
         exit 1
     fi
+}
 
 # Install Apple's Command line tools
 installCommandLineTools() {
@@ -111,7 +112,7 @@ installLibreWolf() {
 installLibreWolfExtensions() {
     echo -e "$ARROW \033[1mInstalling LibreWolf extensions...\033[0m"
     echo -e "see ./LibreWolfExtensions/README.md for details."
-    cp LibreWolfExtensions/** $HOME/Library/Application\ Support/LibreWolf/Profiles/obgtuti3.default-release/extensions
+    cp LibreWolfExtensions/** $HOME/Library/Application\ Support/LibreWolf/Profiles/*.default-release/extensions
 }
 
 # Install everything!
