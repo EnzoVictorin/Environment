@@ -37,7 +37,8 @@ $ ./install.sh
 After running this script, LibreWolf will not load the extensions. Go to the settings menu of LibreWolf to fix it.
 
 # License
-This script is licensed under [GNU GPLv3](./LICENSE)
+This script is licensed under [GNU GPLv3](./LICENSE).
+
 This script comes with **ABSOLUTELY NO WARRANTY**.
 This is free software, and you are welcome to redistribute it
-under certain conditions; see ./LICENSE.
+under certain conditions; see [./LICENSE](./LICENSE).
