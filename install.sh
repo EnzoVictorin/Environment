@@ -75,6 +75,12 @@ installZSH_Plugins() {
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 }
 
+# Install iTerm2 from Homebrew.
+installiTerm2() {
+    echo -e "$ARROW \033[1mInstalling iTerm2...\033[0m"
+    brew install --cask iterm2
+}
+
 # Install Cocoapods
 installCocoapods() {
     echo -e "$ARROW \033[1mInstalling cocoapods...\033[0m"
@@ -127,6 +133,8 @@ install() {
     installZSH_Theme
     # Install ZSH plugins
     installZSH_Plugins
+    # Install iTerm2
+    installiTerm2
     # Install Cocoapods
     installCocoapods
     # Install XcodeS (not Xcode!)
@@ -167,6 +175,7 @@ echo -e "$ARROW \033[1mOh My ZSH\033[0m"
 echo -e "$ARROW \033[1mOh My ZSH theme \`Powerlevel10K\`\033[0m"
 echo -e "$ARROW \033[1mOh My ZSH plugin \`zsh-autosuggestions\`\033[0m"
 echo -e "$ARROW \033[1mOh My ZSH plugin \`zsh-syntax-highlighting\`\033[0m"
+echo -e "$ARROW \033[1miTerm2\033[0m"
 echo -e "$ARROW \033[1mCocoapods\033[0m"
 echo -e "$ARROW \033[1mXcodes\033[0m"
 echo -e "$ARROW \033[1mVSCodium\033[0m"
