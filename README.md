@@ -9,6 +9,7 @@ It installs and configures:
  - [Oh My ZSH](https://ohmyz.sh/)
     - Theme: [PowerLevel10k](https://github.com/romkatv/powerlevel10k)
     - Plugins: [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) and [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting.git)
+ - [iTerm2](https://iterm2.com/)
  - [Cocoapods](https://cocoapods.org/)
  - [Xcodes](https://github.com/RobotsAndPencils/XcodesApp)
  - [VSCodium](https://vscodium.com/)
