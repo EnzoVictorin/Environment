@@ -81,10 +81,17 @@ installiTerm2() {
     brew install --cask iterm2
 }
 
+# Install custom .vimrc
+installVimConfiguration() {
+    echo -e "$ARROW \033[1mInstalling VIM configuration...\033[0m"
+    cp dotFiles/vimrc ~/.vimrc
+}
+
 # Install Cocoapods
 installCocoapods() {
     echo -e "$ARROW \033[1mInstalling cocoapods...\033[0m"
     echo -e "Your password is required for installing Cocoapods."
+    echo -e "Hit ^C to skip."
     sudo gem install cocoapods
 }
 
@@ -95,7 +102,6 @@ installFastlane() {
 }
 
 # Install Xcodes
-#
 installXcodes() {
     echo -e "$ARROW \033[1mInstalling Xcodes...\033[0m"
     brew install --cask xcodes
@@ -133,6 +139,8 @@ install() {
     installZSH_Theme
     # Install ZSH plugins
     installZSH_Plugins
+    # Install vim configuration
+    installVimConfiguration
     # Install iTerm2
     installiTerm2
     # Install Cocoapods
@@ -186,6 +194,7 @@ echo -e ""
 echo -e "This script will overwrite these configuration files:"
 echo -e "$ARROW \033[1m~/.zshrc\033[0m"
 echo -e "$ARROW \033[1m~/.p10k.zsh\033[0m"
+echo -e "$ARROW \033[1m~/.vimrc\033[0m"
 
 echo -e ""
 

@@ -1,0 +1,21 @@
+" Enzo's vimrc
+" see https://github.com/EnzoVictorin/Environment
+
+" Disable compatibility with vi
+set nocompatible
+
+"Enable file type detection
+filetype on
+
+" Enable filetype plugin
+filetype plugin on
+" Load an ident file for the detected file type
+filetype indent on
+" Enable syntax highlighting
+syntax on
+
+" Add line number
+set number
+
+" Highlight search result
+set hlsearch
