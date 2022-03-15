@@ -103,7 +103,7 @@ installFastlane() {
 
 # Install Xcodes
 installXcodes() {
-    echo -e "$ARROW \033[1mInstalling Xcodes...\033[0m"
+    echo -e "$ARROW \033[1mInstalling Xcode download manager \"Xcodes\"...\033[0m"
     brew install --cask xcodes
 }
 
@@ -113,53 +113,65 @@ installVSCodium() {
     brew install --cask vscodium
 }
 
-# Install LibreWolf: a fork of Firefox without telemetry.
-installLibreWolf() {
-    echo -e "$ARROW \033[1mInstalling LibreWolf...\033[0m"
-    brew install --cask librewolf
+# Install Firefox: a fork of Firefox without telemetry.
+installFirefox() {
+    echo -e "$ARROW \033[1mInstalling Firefox...\033[0m"
+    brew install --cask firefox
 }
 
-# Install a few usefull firefox extensiosn
-# See ./LibreWolfExtensions/README.md for details.
-installLibreWolfExtensions() {
-    echo -e "$ARROW \033[1mInstalling LibreWolf extensions...\033[0m"
-    echo -e "see ./LibreWolfExtensions/README.md for details."
-    cp LibreWolfExtensions/** $HOME/Library/Application\ Support/LibreWolf/Profiles/*.default-release/extensions
+# Install Thunderbird email client.
+installThunderbird() {
+    echo -e "$ARROW \033[1mInstalling Thunderbird...\033[0m"
+    brew install --cask thunderbird
+}
+
+# Install a few usefull firefox extensions and user.js
+# See ./browser/README.md for details.
+installFirefoxConfiguration() {
+    echo -e "$ARROW \033[1mInstalling Firefox extensions...\033[0m"
+    echo -e "see ./browser/README.md for details."
+    cp browser/extensions** $HOME/Library/Application\ Support/Firefox/Profiles/*.default-release/extensions/
+    echo -e "$ARROW \033[1mInstalling Firefox user.js...\033[0m"
+    cp browser/user.js** $HOME/Library/Application\ Support/Firefox/Profiles/*.default-release/
+
+
 }
 
 # Install everything!
 install() {
-    # Install Apple's Command line tools.
+    # # Install Apple's Command line tools.
     installCommandLineTools
-    # Install Homebrew, the missing package manager for macOS
+    # # Install Homebrew, the missing package manager for macOS
     installBrew
-    # Install Oh My ZSH
+    # # Install Oh My ZSH
     installOhMyZSH
-    # Install the ZSH theme `Powerlevel10K`
+    # # Install the ZSH theme `Powerlevel10K`
     installZSH_Theme
-    # Install ZSH plugins
+    # # Install ZSH plugins
     installZSH_Plugins
-    # Install vim configuration
+    # # Install vim configuration
     installVimConfiguration
-    # Install iTerm2
+    # # Install iTerm2
     installiTerm2
-    # Install Cocoapods
+    # # Install Cocoapods
     installCocoapods
-    # Install XcodeS (not Xcode!)
+    # # Install XcodeS (not Xcode!)
     installXcodes
-    # Install VSCodium
-    installVSCodium
-    # Install the LibreWolf browser
-    installLibreWolf
-    # Install a few browser extensions
-    # See ./LibreWolfExtensions/README.md for details.
-    installLibreWolfExtensions
+    # # Install VSCodium
+     installVSCodium
+    # Install the Firefox browser
+    installFirefox
+    # Configure the web browser
+    # See ./browser/README.md for details.
+    installFirefoxConfiguration
+    # Install the email client
+    installThunderbird
 
     # Done!
     echo -e ""
     echo -e "$GREEN\033[1mDone!\033[0m\n"
     echo -e "Restart your terminal to see the new look!"
-    echo -e "You need to authorise the extensions within the LibreWolf browser to use them.\n"
+    echo -e "You need to authorise the extensions within the Firefox browser to use them.\n"
     exit 0
 }
 
@@ -171,7 +183,7 @@ checkSudo
 # This script will ask your authorisation before installing anything!
 echo -e "\n$BLUE\033[1mWelcome to Enzo VICTORIN's environment installer!\033[0m"
 echo -e "
-Copyright (C) 2021 Enzo VICTORIN
+Copyright (C) 2022 Enzo VICTORIN
 This program comes with$RED ABSOLUTELY NO WARRANTY$NC; for details see ./LICENSE.
 This is free software, and you are welcome to redistribute it
 under certain conditions; see ./LICENSE.
@@ -187,7 +199,9 @@ echo -e "$ARROW \033[1miTerm2\033[0m"
 echo -e "$ARROW \033[1mCocoapods\033[0m"
 echo -e "$ARROW \033[1mXcodes\033[0m"
 echo -e "$ARROW \033[1mVSCodium\033[0m"
-echo -e "$ARROW \033[1mLibreWolf\033[0m"
+echo -e "$ARROW \033[1mFirefox\033[0m"
+echo -e "$ARROW \033[1mThunderbird\033[0m"
+
 
 echo -e ""
 
@@ -195,18 +209,21 @@ echo -e "This script will overwrite these configuration files:"
 echo -e "$ARROW \033[1m~/.zshrc\033[0m"
 echo -e "$ARROW \033[1m~/.p10k.zsh\033[0m"
 echo -e "$ARROW \033[1m~/.vimrc\033[0m"
+echo -e "$ARROW \033[1m~/.vimrc\033[0m"
+echo -e "$ARROW \033[1m$HOME/Library/Application\ Support/Firefox/Profiles/*.default-release/user.js\033[0m"
 
 echo -e ""
 
-echo -e "This script will install these browser extensions in LibreWolf:"
+echo -e "This script will install these browser extensions in Firefox:"
+echo -e "$ARROW \033[1m1Password\033[0m"
+echo -e "$ARROW \033[1mDark Reader\033[0m"
+echo -e "$ARROW \033[1mHoney\033[0m"
 echo -e "$ARROW \033[1mMedium Unlimited\033[0m"
-echo -e "$ARROW \033[1mFirefox Multi-Account Container\033[0m"
-echo -e "$ARROW \033[1mDashlane\033[0m"
 echo -e "$ARROW \033[1mSponsorBlock\033[0m"
-echo -e "$ARROW \033[1mAuto Cookie Optout\033[0m"
-echo -e "$ARROW \033[1mForget Me Not\033[0m"
+echo -e "$ARROW \033[1muBlock Origin\033[0m"
+echo -e "$ARROW \033[1mReturn Youtube Dislike\033[0m"
 
-# yes, it really does it!
+
 read -p $'Do you wish to continue? [y/n] \x0a' yn
 case $yn in
     [Yy]* ) install;;
